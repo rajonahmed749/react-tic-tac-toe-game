@@ -78,12 +78,12 @@ const Game = () => {
 
     const status = winner ?
         winner === 'D' ? 'Draw' :
-            'Winner is ' + winner :
+            <span className="status"> Winner is {winner}</span> :
         "Next player is " + (xIsNext ? 'X' : '0');
 
     const moves = history.map((step, move) => {
-        const desc = move ? 'Go to #' + move : 'Start the Game';
-        return <li key={move}>
+        const desc = move ? 'Go back step ' + move : 'Start the Game';
+        return <li key={move} className="point-list">
             <button onClick={() => jumpTo(move)}>
                 {desc}
             </button>
